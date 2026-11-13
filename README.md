@@ -14,7 +14,7 @@ git clone https://github.com/boyi-lee/copywrite-ad-agent.git ~/.codex/skills/cop
 
 也可以在 GitHub 選擇 **Code → Download ZIP**，解壓後將整個 repo 放入 `~/.codex/skills/copywrite-ad-agent/`。repo 根目錄就是 Skill 根目錄，請保留 `SKILL.md`、`agents/`、`knowledge/`、`references/`、`schemas/`、`scripts/`、`templates/` 與 `tests/`。
 
-Skill 名稱為 `copywrite-ad-agent`，呼叫中繼資料位於 `agents/openai.yaml)。請先閱讀 [SKILL.md](SKILL.md)：它是正式流程與權限邊界的主要文件。
+Skill 名稱為 `copywrite-ad-agent`，呼叫中繼資料位於 `agents/openai.yaml`。請先閱讀 [SKILL.md](SKILL.md)：它是正式流程與權限邊界的主要文件。
 
 ## 功能與流程
 
