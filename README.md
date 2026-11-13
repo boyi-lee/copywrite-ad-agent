@@ -1,6 +1,6 @@
 # copywrite-ad-agent
 
-[繁體中文](README.md) ｜ [English](README.en.md)
+[繁體中文（預設）](README.md) ｜ [English](README.en.md)
 
 以證據為先的電商文案 Skill，支援 Meta 廣告文案、創意 Brief、商品研究與文案審核。它會結合品牌與商品資料，透過結構化規劃、確定性檢查與獨立審核，協助產出可追溯的工作成果。
 
@@ -31,6 +31,27 @@ Skill 名稱為 `copywrite-ad-agent`，呼叫中繼資料位於 `agents/openai.y
 ### Google 試算表用 Meta 創意 Brief
 
 這是與成品廣告文案分開的流程。Skill 會建立結構化 Brief、檢查完整資料集，並在寫入試算表前進行審核。只有通過檢查且目的地已獲授權後才會寫入；完成後會讀回資料列驗證結果。
+
+## 採用的行銷原理
+
+這個 Skill 把行銷原理作為**分析與規劃工具**，依任務選用，不會要求每篇文案套用同一個公式。
+
+| 原理類別 | README 導覽 | 用途 |
+|---|---|---|
+| 受眾意圖與基本文案原則 | [通用文案原則](references/copy-knowledge-pack/01_universal_copywriting_principles.md) | 從受眾當下的意圖、問題或阻力出發；把產品特點連到利益與顧客在意的結果；辨認並回應疑慮。 |
+| 說服與訊息框架 | [說服框架](references/copy-knowledge-pack/02_persuasion_frameworks.md)、[訊息結構](references/copy-knowledge-pack/06_message_structure_patterns.md) | 包含 TIPS、PAS、BAB、FAB 等框架，以及異議處理結構；用來整理訊息，不是必須照抄的固定模板。 |
+| 受眾動機與心理 | [受眾意圖與心理](references/copy-knowledge-pack/03_audience_intent_and_psychology.md)、[角度矩陣](references/creative-angle-matrix.md) | 探索購買動機、使用情境、顧客張力、預期進展與不同購買理由；受眾推論須標示為假設。 |
+| 價值、優惠與 USP | [價值與方案轉譯](references/copy-knowledge-pack/04_offer_and_value_translation.md)、[USP 轉譯規則](references/usp-translation-rules.md)、[電商文案指南](knowledge/ecommerce-copywriting-playbook.md) | 把特點連到功能利益、使用情境、可能的感受與購買理由；優惠與急迫性必須有當前來源支持。 |
+| 注意力與開場 | [Hook 與注意力模式](references/copy-knowledge-pack/05_hook_and_attention_patterns.md) | 提供提問、情境、反差與警示等開場選項；是否使用要看受眾、素材和證據，不以吸睛為由誇大。 |
+| 漏斗與渠道情境 | [漏斗文案規則](references/copy-knowledge-pack/07_funnel_copy_rules.md)、[平台適配](references/copy-knowledge-pack/08_platform_adaptation_rules.md)、[產業適配](references/copy-knowledge-pack/09_industry_adaptation_rules.md) | 依 TOFU／MOFU／BOFU 等決策階段及平台版位，調整資訊深度、證據與下一步行動。 |
+| 素材與欄位分工 | [Meta 格式指南](references/meta-formats.md)、[視覺流程規則](references/visual-flow-rules.md) | 讓素材、主文案、標題、說明和 CTA 接續溝通，減少重複訊息。 |
+
+### 使用原理時的界線
+
+- 框架名稱本身不代表有證據，也不證明某角度有效；[角度矩陣](references/creative-angle-matrix.md)要求以實際購買理由判斷角度差異。
+- 心理、受眾、需求和購買動機若未由顧客資料證實，應保持為假設，不可寫成市場事實。
+- 商品規格、優惠、庫存、見證、比較及成效宣稱都要回到當前來源；一般行銷原理不能補足缺少的商品證據。
+- 知識包提供跨產業範例和候選做法，需依品牌、商品、平台與法規情境判斷適用性；不適用的框架可以不用。
 
 ## 資料來源與使用界線
 
