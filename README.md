@@ -1,74 +1,78 @@
 # copywrite-ad-agent
 
-A source-first Skill for ecommerce ad copy, Meta creative briefs, product research, and copy review. It combines brand and product evidence with structured planning, deterministic checks, and independent review.
+[繁體中文](README.md) ｜ [English](README.en.md)
 
-## Download and install
+以證據為先的電商文案 Skill，支援 Meta 廣告文案、創意 Brief、商品研究與文案審核。它會結合品牌與商品資料，透過結構化規劃、確定性檢查與獨立審核，協助產出可追溯的工作成果。
 
-Clone the repository directly into the Codex skills directory:
+## 下載與安裝
+
+將 repo 直接複製到 Codex Skills 資料夾：
 
 ```bash
 git clone https://github.com/boyi-lee/copywrite-ad-agent.git ~/.codex/skills/copywrite-ad-agent
 ```
 
-Or use GitHub's **Code → Download ZIP**, then place the repository contents in `~/.codex/skills/copywrite-ad-agent/`. The repository root is the Skill root; keep `SKILL.md`, `agents/`, `knowledge/`, `references/`, `schemas/`, `scripts/`, `templates/`, and `tests/` together.
+也可以在 GitHub 選擇 **Code → Download ZIP**，解壓後將整個 repo 放入 `~/.codex/skills/copywrite-ad-agent/`。repo 根目錄就是 Skill 根目錄，請保留 `SKILL.md`、`agents/`、`knowledge/`、`references/`、`schemas/`、`scripts/`、`templates/` 與 `tests/`。
 
-The Skill is invoked as `copywrite-ad-agent`; its metadata is in `agents/openai.yaml`. Start with [SKILL.md](SKILL.md), which is the normative workflow and permission boundary.
+Skill 名稱為 `copywrite-ad-agent`，呼叫中繼資料位於 `agents/openai.yaml)。請先閱讀 [SKILL.md](SKILL.md)：它是正式流程與權限邊界的主要文件。
 
-## What it does
+## 功能與流程
 
-### Ad copy, rewrites, and reviews
+### 電商文案撰寫、改寫與審核
 
-1. Research current product, campaign, landing-page, and creative evidence.
-2. Build audience and buying-angle hypotheses, keeping assumptions distinct from verified facts.
-3. Preview the strategy and get confirmation for angles when required by the request and workflow.
-4. Draft copy for the selected angles, then check claims and platform/funnel requirements.
-5. Import a separate review bound to the current draft, evidence, and rubric; verify the completed run before delivery.
+1. 蒐集當前商品、活動、著陸頁與素材證據。
+2. 建立受眾與購買角度假設，清楚區分假設和已驗證事實。
+3. 依任務與流程需要，先預覽策略並取得角度確認。
+4. 針對選定角度撰寫文案，再檢查宣稱及平台、漏斗要求。
+5. 將當前草稿、證據與評分規準交由獨立審核；確認審核流程完成後再交付。
 
-A strategy preview is not ready-to-paste copy. A passing workflow is not proof of ad performance, policy approval, or publication.
+策略預覽不是可直接上線的文案。流程檢查通過也不代表廣告成效、平台政策核准或已發布。
 
-### Meta creative briefs for Google Sheets
+### Google 試算表用 Meta 創意 Brief
 
-This is a separate route from finished ad copy. It creates structured briefs, validates the complete set, and reviews it before any Sheet write. A Sheet write occurs only after the gate passes and the destination is authorized; the written rows are read back for verification.
+這是與成品廣告文案分開的流程。Skill 會建立結構化 Brief、檢查完整資料集，並在寫入試算表前進行審核。只有通過檢查且目的地已獲授權後才會寫入；完成後會讀回資料列驗證結果。
 
-## Source and safety rules
+## 資料來源與使用界線
 
-- Current source evidence takes precedence over historical examples and brand learning.
-- `references/creative-angle-matrix.md` owns angle identity, count handling, distinctness, and confirmation; compatibility documents point back to it.
-- `references/brands/` holds maintained brand profiles. `knowledge/` holds ecommerce guidance and brand-specific failure-pattern learning.
-- Machine checks verify structure, hashes, and required fields; they do not independently establish claim truth or reviewer identity.
-- The Skill does not publish ads, write to ad accounts, or write to Shopify.
+- 當前來源證據優先於歷史範例與品牌學習內容。
+- [creative-angle-matrix.md](references/creative-angle-matrix.md) 是角度定義、數量處理、差異性與確認流程的唯一依據；相容性文件應回指此文件。
+- `references/brands/` 存放維護中的品牌資料；`knowledge/` 存放電商指引與品牌失誤模式學習。
+- 機器檢查可驗證結構、雜湊與必要欄位，但不能單獨證明宣稱真實或審核者身分。
+- 本 Skill 不會發布廣告、不會寫入廣告帳戶，也不會寫入 Shopify。
 
-This repository includes brand-specific profiles and historical learning modules. Review those materials and their suitability for your organization before adopting them.
+此 repo 含品牌專屬資料與歷史學習內容。採用前，請先檢視這些材料，並確認適合你的組織與用途。
 
-## Find the right material
+## 依任務找到檔案
 
-| Task | Start here | Supporting files |
+| 任務 | 從這裡開始 | 相關文件 |
 |---|---|---|
-| Ecommerce ad copy | [SKILL.md](SKILL.md) | [Ecommerce playbook](knowledge/ecommerce-copywriting-playbook.md), [angle matrix](references/creative-angle-matrix.md), funnel/platform rules in `references/copy-knowledge-pack/`, [quality contract](references/creative-quality-contract.md), [validation contract](references/validation-contract.md) |
-| Meta copy or revision | [SKILL.md](SKILL.md) | [Meta review loop](references/meta-conversion-review-loop.md), [format guide](references/meta-formats.md) |
-| Brand-specific copy | `references/brands/<brand>.md` | Related failure-pattern notes in `knowledge/`; verify all claims against current evidence |
-| Product research and USP evidence | [Product research loop](references/product-research-loop.md) | [Verification rubric](references/product-research-verification-rubric.md), `schemas/product-research-output.schema.json`, `scripts/validate_product_research.py` |
-| Meta creative brief | Brief route in [SKILL.md](SKILL.md) | [Brief review rules](references/creative-brief-review-adaptation.md), `schemas/creative-brief-set.schema.json`, `schemas/creative-brief-review.schema.json`, `scripts/validate_creative_brief.py` |
-| Google RSA copy | [Google RSA guidance](references/google-rsa.md) | `references/copy-knowledge-pack/08_platform_adaptation_rules.md`, `scripts/validate_copy.py` |
-| Workflow maintenance | [Orchestrator](scripts/copy_orchestrator.py) | `schemas/`, `templates/`, and matching regression tests under `tests/` |
+| 電商廣告文案 | [SKILL.md](SKILL.md) | [電商文案指南](knowledge/ecommerce-copywriting-playbook.md)、[角度矩陣](references/creative-angle-matrix.md)、`references/copy-knowledge-pack/` 的漏斗與平台規則、[品質契約](references/creative-quality-contract.md)、[驗證契約](references/validation-contract.md) |
+| Meta 文案與改寫 | [SKILL.md](SKILL.md) | [Meta 審核循環](references/meta-conversion-review-loop.md)、[格式指南](references/meta-formats.md) |
+| 品牌專屬文案 | `references/brands/<brand>.md` | `knowledge/` 中相應的失誤模式筆記；所有宣稱仍須用當前證據確認 |
+| 商品研究與 USP 證據 | [商品研究流程](references/product-research-loop.md) | [驗證規準](references/product-research-verification-rubric.md)、`schemas/product-research-output.schema.json`、`scripts/validate_product_research.py` |
+| Meta 創意 Brief | [SKILL.md](SKILL.md) 的 Brief 流程 | [Brief 審核規則](references/creative-brief-review-adaptation.md)、`schemas/creative-brief-set.schema.json`、`schemas/creative-brief-review.schema.json`、`scripts/validate_creative_brief.py` |
+| Google RSA 文案 | [Google RSA 指引](references/google-rsa.md) | `references/copy-knowledge-pack/08_platform_adaptation_rules.md`、`scripts/validate_copy.py` |
+| 維護工作流程 | [流程協調器](scripts/copy_orchestrator.py) | `schemas/`、`templates/` 及 `tests/` 中相對應的回歸測試 |
 
-## Folder structure
+## 資料夾結構
 
 ```text
 copywrite-ad-agent/
-├── SKILL.md       # Workflow entry point and boundaries
-├── agents/        # Skill invocation metadata
-├── knowledge/     # Ecommerce guidance and brand learning
-├── references/    # Brand, platform, research, and quality rules
-├── schemas/       # Machine-readable contracts
-├── scripts/       # Orchestration, research, and validators
-├── templates/     # Starter run records
-└── tests/         # Regression tests and fixtures
+├── SKILL.md       # 流程入口與使用界線
+├── agents/        # Skill 呼叫中繼資料
+├── knowledge/     # 電商指引與品牌學習
+├── references/    # 品牌、平台、研究與品質規則
+├── schemas/       # 機器可讀的資料契約
+├── scripts/       # 流程協調、研究與驗證器
+├── templates/     # 執行紀錄起始範本
+├── tests/         # 回歸測試與測試資料
+├── README.md      # 繁體中文主文件
+└── README.en.md   # 英文版說明
 ```
 
-## Verify the package
+## 驗證套件
 
-Run these commands from the repository root:
+在 repo 根目錄執行：
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -78,8 +82,12 @@ python3 scripts/review_quality_upgrade.py standards
 python3 scripts/review_quality_upgrade.py spec
 ```
 
-Expected: all unit tests pass, Python compilation succeeds, every schema parses as JSON, and both review commands report `"verdict": "pass"`. These checks cover local structure and regression expectations; they do not verify live product claims, ad performance, policy approval, or publication.
+預期結果：所有單元測試通過、Python 編譯成功、每個 schema 都能解析為 JSON，且兩個 review 指令都回報 `"verdict": "pass"`。這些檢查涵蓋本機結構與回歸要求，不會驗證線上商品宣稱、廣告成效、平台政策核准或發布狀態。
 
-## Version and release status
+## 版本與發布狀態
 
-This repository mirrors the currently installed Skill snapshot. The snapshot has no verified release tag, so it is an unversioned source copy, not a numbered stable release. See [release identity and rollback](references/candidate-release-and-rollback.md) before making or distributing a new release.
+此 repo 同步目前已安裝的 Skill 快照。尚無已驗證的版本標籤，因此它是未編號的來源副本，不代表正式穩定版本。建立或散布新版本前，請閱讀[版本識別與回復說明](references/candidate-release-and-rollback.md)。
+
+---
+
+[English documentation](README.en.md)
