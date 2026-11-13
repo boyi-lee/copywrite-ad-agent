@@ -5,9 +5,7 @@ description: Build evidence-grounded Meta creative briefs and route ad-copy task
 
 # Skill Entrypoint
 
-This is the stable `copywrite-ad-agent` Skill used by Hermes and existing callers. The complete implementation is this folder:
-
-`/Users/boyi/.codex/skills/copywrite-ad-agent/`
+This is the stable `copywrite-ad-agent` Skill used by Hermes and existing callers. The complete implementation is in the directory containing this `SKILL.md`.
 
 Select the workflow by deliverable before doing research:
 

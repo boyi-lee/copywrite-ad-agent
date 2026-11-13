@@ -1,39 +1,74 @@
 # copywrite-ad-agent
 
-Evidence-grounded workflows for ecommerce advertising copy and Meta creative briefs.
+A source-first Skill for ecommerce ad copy, Meta creative briefs, product research, and copy review. It combines brand and product evidence with structured planning, deterministic checks, and independent review.
 
-## Status and entry points
+## Download and install
 
-- **Installed Skill path:** `/Users/boyi/.codex/skills/copywrite-ad-agent/` (the directory containing this file).
-- **Release identity:** this installed snapshot has no verified release tag. Treat the path above as the active source; do not call it an uninstalled candidate.
-- **Agent invocation:** `copywrite-ad-agent`, configured in `agents/openai.yaml`.
-- **Normative workflow:** [SKILL.md](SKILL.md). It controls task routing, required evidence, approval boundaries, and delivery gates. This README is navigation and maintenance documentation only.
+Clone the repository directly into the Codex skills directory:
 
-A separately stored, dated candidate or backup is not active unless it is installed at the canonical path and verified. See [release and rollback](references/candidate-release-and-rollback.md).
+```bash
+git clone https://github.com/boyi-lee/copywrite-ad-agent.git ~/.codex/skills/copywrite-ad-agent
+```
 
-## Find the right material by task
+Or use GitHub's **Code → Download ZIP**, then place the repository contents in `~/.codex/skills/copywrite-ad-agent/`. The repository root is the Skill root; keep `SKILL.md`, `agents/`, `knowledge/`, `references/`, `schemas/`, `scripts/`, `templates/`, and `tests/` together.
 
-| Task | Start here | Supporting material |
+The Skill is invoked as `copywrite-ad-agent`; its metadata is in `agents/openai.yaml`. Start with [SKILL.md](SKILL.md), which is the normative workflow and permission boundary.
+
+## What it does
+
+### Ad copy, rewrites, and reviews
+
+1. Research current product, campaign, landing-page, and creative evidence.
+2. Build audience and buying-angle hypotheses, keeping assumptions distinct from verified facts.
+3. Preview the strategy and get confirmation for angles when required by the request and workflow.
+4. Draft copy for the selected angles, then check claims and platform/funnel requirements.
+5. Import a separate review bound to the current draft, evidence, and rubric; verify the completed run before delivery.
+
+A strategy preview is not ready-to-paste copy. A passing workflow is not proof of ad performance, policy approval, or publication.
+
+### Meta creative briefs for Google Sheets
+
+This is a separate route from finished ad copy. It creates structured briefs, validates the complete set, and reviews it before any Sheet write. A Sheet write occurs only after the gate passes and the destination is authorized; the written rows are read back for verification.
+
+## Source and safety rules
+
+- Current source evidence takes precedence over historical examples and brand learning.
+- `references/creative-angle-matrix.md` owns angle identity, count handling, distinctness, and confirmation; compatibility documents point back to it.
+- `references/brands/` holds maintained brand profiles. `knowledge/` holds ecommerce guidance and brand-specific failure-pattern learning.
+- Machine checks verify structure, hashes, and required fields; they do not independently establish claim truth or reviewer identity.
+- The Skill does not publish ads, write to ad accounts, or write to Shopify.
+
+This repository includes brand-specific profiles and historical learning modules. Review those materials and their suitability for your organization before adopting them.
+
+## Find the right material
+
+| Task | Start here | Supporting files |
 |---|---|---|
-| Ecommerce ad copy | [SKILL.md](SKILL.md), then [ecommerce playbook](knowledge/ecommerce-copywriting-playbook.md) | [angle planning](references/creative-angle-matrix.md), funnel and platform rules under `references/copy-knowledge-pack/`, [quality contract](references/creative-quality-contract.md), [validation contract](references/validation-contract.md) |
-| Meta ad copy or revision | [SKILL.md](SKILL.md) | [Meta conversion review loop](references/meta-conversion-review-loop.md), [Meta formats](references/meta-formats.md), funnel/platform rules in `references/copy-knowledge-pack/` |
-| Brand-specific copy | The brand file in `references/brands/` | Relevant brand failure patterns in `knowledge/`; current product and campaign evidence still takes precedence |
-| Product research / USP evidence | [Product research loop](references/product-research-loop.md) | [Verification rubric](references/product-research-verification-rubric.md), `schemas/product-research-output.schema.json`, `scripts/validate_product_research.py` |
-| Creative brief for Google Sheets | The brief route in [SKILL.md](SKILL.md) | [Brief review adaptation](references/creative-brief-review-adaptation.md), the two `creative-brief-*.schema.json` files, `scripts/validate_creative_brief.py`; load the Google Sheets Skill only at the authorized write stage |
-| Google RSA copy | [Google RSA guidance](references/google-rsa.md) | Platform constraints in `references/copy-knowledge-pack/08_platform_adaptation_rules.md`; delivery validation in `scripts/validate_copy.py` |
-| Workflow implementation or repair | [orchestrator](scripts/copy_orchestrator.py) and [run contract](schemas/copy-run.schema.json) | Matching tests in `tests/`; do not bypass the orchestrator for production runs |
+| Ecommerce ad copy | [SKILL.md](SKILL.md) | [Ecommerce playbook](knowledge/ecommerce-copywriting-playbook.md), [angle matrix](references/creative-angle-matrix.md), funnel/platform rules in `references/copy-knowledge-pack/`, [quality contract](references/creative-quality-contract.md), [validation contract](references/validation-contract.md) |
+| Meta copy or revision | [SKILL.md](SKILL.md) | [Meta review loop](references/meta-conversion-review-loop.md), [format guide](references/meta-formats.md) |
+| Brand-specific copy | `references/brands/<brand>.md` | Related failure-pattern notes in `knowledge/`; verify all claims against current evidence |
+| Product research and USP evidence | [Product research loop](references/product-research-loop.md) | [Verification rubric](references/product-research-verification-rubric.md), `schemas/product-research-output.schema.json`, `scripts/validate_product_research.py` |
+| Meta creative brief | Brief route in [SKILL.md](SKILL.md) | [Brief review rules](references/creative-brief-review-adaptation.md), `schemas/creative-brief-set.schema.json`, `schemas/creative-brief-review.schema.json`, `scripts/validate_creative_brief.py` |
+| Google RSA copy | [Google RSA guidance](references/google-rsa.md) | `references/copy-knowledge-pack/08_platform_adaptation_rules.md`, `scripts/validate_copy.py` |
+| Workflow maintenance | [Orchestrator](scripts/copy_orchestrator.py) | `schemas/`, `templates/`, and matching regression tests under `tests/` |
 
-## Source-of-truth map
+## Folder structure
 
-- `SKILL.md` is the only top-level workflow router.
-- `references/creative-angle-matrix.md` is authoritative for angle identity, distinctness, counts, and confirmation. `references/orthogonal-matrix-logic.md` is a compatibility guide only; it points back to the angle matrix and does not define another workflow or require 24 angles.
-- `references/brands/<brand>.md` is the maintained brand profile. Brand-specific files in `knowledge/` describe failure patterns or historical learning; they do not replace the profile or current evidence. `references/ash-golf.md` is a compatibility redirect to `references/brands/ash-golf.md`.
-- `references/copy-knowledge-pack/` is a modular reference library. Load only the sections selected by `SKILL.md`; its examples and background do not override current product, campaign, or market evidence.
-- `schemas/` defines machine-readable payloads; `scripts/` implements deterministic workflow and validation; `templates/` provides starting records; `tests/` protects expected behavior.
+```text
+copywrite-ad-agent/
+├── SKILL.md       # Workflow entry point and boundaries
+├── agents/        # Skill invocation metadata
+├── knowledge/     # Ecommerce guidance and brand learning
+├── references/    # Brand, platform, research, and quality rules
+├── schemas/       # Machine-readable contracts
+├── scripts/       # Orchestration, research, and validators
+├── templates/     # Starter run records
+└── tests/         # Regression tests and fixtures
+```
 
-## Verification
+## Verify the package
 
-Run from this directory:
+Run these commands from the repository root:
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -43,16 +78,8 @@ python3 scripts/review_quality_upgrade.py standards
 python3 scripts/review_quality_upgrade.py spec
 ```
 
-Expected result: unit tests and compilation finish successfully; each JSON schema parses; both review commands report `"verdict": "pass"`. Standards Review checks workflow boundaries and source-of-truth rules. Spec Review checks the documented quality requirements and regression-test presence.
+Expected: all unit tests pass, Python compilation succeeds, every schema parses as JSON, and both review commands report `"verdict": "pass"`. These checks cover local structure and regression expectations; they do not verify live product claims, ad performance, policy approval, or publication.
 
-These checks validate local structure and regression behavior. They do **not** establish that a particular product claim is true, that a human reviewer is independent, that copy will perform, that a live ad is policy-approved, or that anything has been published. For a specific copy run, follow the per-run gates and verification in [SKILL.md](SKILL.md).
+## Version and release status
 
-## Folder map
-
-- `agents/` — invocation metadata.
-- `knowledge/` — ecommerce guidance and brand-specific failure-pattern learning.
-- `references/` — workflow details, brand profiles, platform guidance, and quality contracts.
-- `schemas/` — machine-readable data contracts.
-- `scripts/` — orchestration, research, and validators.
-- `templates/` — starter run records.
-- `tests/` — regression tests and fixtures.
+This repository mirrors the currently installed Skill snapshot. The snapshot has no verified release tag, so it is an unversioned source copy, not a numbered stable release. See [release identity and rollback](references/candidate-release-and-rollback.md) before making or distributing a new release.

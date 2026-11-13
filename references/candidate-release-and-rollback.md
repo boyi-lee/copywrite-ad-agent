@@ -4,7 +4,7 @@ This file keeps its historical `candidate-` filename for compatibility with exis
 
 ## Current state
 
-The active Skill is the directory installed at `/Users/boyi/.codex/skills/copywrite-ad-agent/`. This canonical directory is present in the installed Skill catalog. Its current tree has no verified release tag, so describe it as the **installed, unversioned snapshot**; do not describe it as an uninstalled candidate.
+The active Skill is installed as `copywrite-ad-agent` in the current Codex skills root. This repository mirrors that installed tree, but the current tree has no verified release tag; describe it as the **installed, unversioned snapshot**, not as a numbered release.
 
 Other dated copies under the workspace or backup paths are historical artifacts. They are not the active source and must not be merged selectively into the installed tree. Verify a candidate as a complete tree before any future release.
 
