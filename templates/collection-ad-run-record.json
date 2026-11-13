@@ -1,0 +1,38 @@
+{
+  "run_id": "",
+  "loop_id": "copywrite-ecommerce-collection-ad",
+  "loop_version": "1.0.0",
+  "task": {
+    "objective": "",
+    "platform": "meta",
+    "ad_format": "collection",
+    "audience_stage": "unknown",
+    "definition_of_done": ""
+  },
+  "input_snapshot": {
+    "campaign_brief": {},
+    "creative_pointers": [],
+    "source_pointers": []
+  },
+  "collection_ad_evidence": {
+    "asset_to_products": [],
+    "conversion_lever": {},
+    "shopper_tension": "",
+    "decision_to_make": ""
+  },
+  "attempts": [],
+  "checker_verdicts": [],
+  "final_verdict": {
+    "status": "blocked",
+    "failed_criteria": [],
+    "human_review_required": true
+  },
+  "learning_entry": {
+    "user_feedback": "",
+    "rejected_wording": [],
+    "failure_category": "",
+    "proposed_rule_or_test": ""
+  },
+  "live_ready": false,
+  "manual_check_required": true
+}

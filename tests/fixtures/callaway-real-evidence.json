@@ -1,0 +1,6 @@
+{
+  "facts":[
+    {"fact_id":"fact-dr-01","source_id":"src-dr","url":"https://callaway.com.tw/products/elyte-dr","locator":"商品頁尾部配重／規格區","excerpt":"尾部配重可調整左右彈道方向","claim_scope":"product_feature","confidence":"high"},
+    {"fact_id":"fact-hy-01","source_id":"src-hy","url":"https://callaway.com.tw/products/elyte-hy","locator":"商品頁桿號與設定區","excerpt":"可比較 3H／4H／5H、桿面角度、著地角度、左右彈道與兩側配重","claim_scope":"product_feature","confidence":"high"}
+  ]
+}

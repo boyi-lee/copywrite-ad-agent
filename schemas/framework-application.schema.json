@@ -1,0 +1,11 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
+  "required":["angle_id","selected_message_framework","selected_value_framework","application_steps"],
+  "properties":{
+    "angle_id":{"type":"string"},
+    "selected_message_framework":{"enum":["PAS","TIPS","AIDAS","4R"]},
+    "selected_value_framework":{"enum":["FEB","FAB"]},
+    "application_steps":{"type":"array","minItems":3}
+  }
+}

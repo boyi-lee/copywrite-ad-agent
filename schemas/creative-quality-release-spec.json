@@ -1,0 +1,21 @@
+{
+  "spec_id": "copywrite-ad-agent-generic-quality-upgrade",
+  "version": "1.0.0",
+  "scope": "generic copy strategy and editorial quality instructions; preserve existing brief and copy workflow contracts",
+  "requirements": [
+    {"id":"Q01","file":"references/creative-angle-matrix.md","must_contain":"shopper_motivation"},
+    {"id":"Q02","file":"references/creative-angle-matrix.md","must_contain":"Do not generate 24 combinations as a default"},
+    {"id":"Q03","file":"references/creative-quality-contract.md","must_contain":"buyer_payoff"},
+    {"id":"Q04","file":"references/meta-conversion-review-loop.md","must_contain":"Do not impose a universal line count"},
+    {"id":"Q05","file":"SKILL.md","must_contain":"stop at `independent_review`"},
+    {"id":"Q06","file":"scripts/copy_orchestrator.py","must_contain":"def import_review"},
+    {"id":"Q07","file":"scripts/validate_independent_review.py","must_contain":"review must cover exactly the drafted angles"}
+  ],
+  "required_tests": [
+    "test_machine_contract_has_all_distinct_quality_checks",
+    "test_regressions_cover_multiple_categories_and_failure_modes",
+    "test_angle_matrix_does_not_force_twenty_four_variants",
+    "test_writer_cannot_self_review_and_unsupported_hook_blocks"
+  ],
+  "limitation_document": "references/candidate-release-and-rollback.md"
+}

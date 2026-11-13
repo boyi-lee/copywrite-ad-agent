@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "creative-quality-contract.json",
+  "title": "Creative Quality Review Contract",
+  "type": "object",
+  "required": ["angle_id", "opening", "buyer_payoff", "distinctness", "evidence_boundary", "field_fit"],
+  "properties": {
+    "angle_id": {"type": "string", "minLength": 1},
+    "opening": {"$ref": "#/$defs/review"},
+    "buyer_payoff": {"$ref": "#/$defs/review"},
+    "distinctness": {"$ref": "#/$defs/review"},
+    "evidence_boundary": {"$ref": "#/$defs/review"},
+    "field_fit": {"$ref": "#/$defs/review"}
+  },
+  "$defs": {
+    "review": {
+      "type": "object",
+      "required": ["verdict", "rationale"],
+      "properties": {
+        "verdict": {"enum": ["pass", "fail", "blocked"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

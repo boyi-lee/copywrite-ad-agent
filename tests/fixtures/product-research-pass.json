@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "fixture-pass",
+  "status": "passed",
+  "started_at": "2026-07-20T00:00:00+00:00",
+  "ended_at": "2026-07-20T00:00:01+00:00",
+  "requested_urls": ["https://example.com/products/shirt"],
+  "products": [
+    {
+      "requested_url": "https://example.com/products/shirt",
+      "source_url": "https://example.com/products/shirt",
+      "crawl_status": "success",
+      "status_code": 200,
+      "title": "Example Shirt",
+      "facts": [
+        {
+          "id": "EV-example001",
+          "field": "material",
+          "value": "Recycled polyester",
+          "source_url": "https://example.com/products/shirt",
+          "source_type": "json_ld",
+          "source_locator": "Product[0].material",
+          "evidence_text": "Recycled polyester",
+          "captured_at": "2026-07-20T00:00:00+00:00",
+          "confidence": "high",
+          "volatile": false
+        }
+      ],
+      "raw_markdown_path": "product-01.md",
+      "error": ""
+    }
+  ],
+  "usp_candidates": [
+    {
+      "product_url": "https://example.com/products/shirt",
+      "classification": "selling_point",
+      "feature": "Recycled polyester material",
+      "evidence_ids": ["EV-example001"],
+      "functional_benefit": "Provides a material choice with recycled content",
+      "use_case": "For shoppers who include material sourcing in purchase decisions",
+      "desire": "Choose clothing with a clearer material story",
+      "buying_reason": "The material specification gives this audience a concrete selection reason",
+      "confidence": "medium"
+    }
+  ],
+  "blocked_claims": [],
+  "budgets": {
+    "max_urls": 20,
+    "max_attempts_per_url": 2,
+    "max_duration_seconds": 180,
+    "max_concurrency": 4,
+    "duration_seconds": 1
+  },
+  "unresolved_risks": [],
+  "live_ready": false,
+  "manual_check_required": true
+}

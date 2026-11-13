@@ -1,0 +1,45 @@
+{
+  "run_id": "",
+  "loop_id": "copywrite-ecommerce-product-copy",
+  "loop_version": "1.0.0",
+  "task_id": "",
+  "started_at": "",
+  "ended_at": "",
+  "trigger": {"type": "explicit_user_request"},
+  "input_snapshot": {
+    "campaign_brief": {},
+    "source_pointers": [],
+    "creative_pointers": []
+  },
+  "ecommerce_copy_check": {
+    "audience_problem": "",
+    "use_moment": "",
+    "product_help": "",
+    "proof_available": [],
+    "objection": "",
+    "next_action": ""
+  },
+  "attempts": [],
+  "checker_verdicts": [],
+  "final_verdict": {
+    "status": "blocked",
+    "score": 0,
+    "failed_criteria": [],
+    "evidence": [],
+    "retry_instruction": "",
+    "human_review_required": true
+  },
+  "budgets": {
+    "max_draft_attempts": 3,
+    "max_revision_attempts": 2,
+    "max_duration_seconds": 180,
+    "attempts_used": 0,
+    "duration_seconds": 0
+  },
+  "artifacts": [],
+  "unresolved_risks": [],
+  "learning_note": "",
+  "rule_update_proposal": "",
+  "live_ready": false,
+  "manual_check_required": true
+}

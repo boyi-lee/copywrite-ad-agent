@@ -1,0 +1,63 @@
+{
+  "run_id": "",
+  "loop_id": "meta-conversion-copy-review",
+  "loop_version": "2.0.0",
+  "schema_version": "1.0.0",
+  "workflow_id": "copywrite-ad-agent",
+  "workflow_version": "2.0.0",
+  "state": "intake",
+  "status": "in_progress",
+  "task_id": "",
+  "started_at": "",
+  "ended_at": "",
+  "trigger": {"type": "explicit_user_request"},
+  "input_snapshot": {
+    "campaign_brief": {},
+    "source_pointers": [],
+  "creative_pointers": []
+  },
+  "stages": {},
+  "transition_log": [],
+  "persona_hypotheses": [
+    {
+      "persona": "",
+      "supporting_evidence": [],
+      "confidence": "low",
+      "jtbd_problem": "",
+      "decision_barrier": ""
+    }
+  ],
+  "clarification": {
+    "business_objective": "",
+    "funnel_stage": "",
+    "requested_angle_count": 0,
+    "recommended_default": "",
+    "user_confirmation": "pending"
+  },
+  "angle_matrix": [
+    {
+      "group": "A",
+      "persona": "",
+      "funnel": "",
+      "maslow_motivation": "",
+      "jtbd_problem": "",
+      "need_angle": "",
+      "usp_fed": {"feature": "", "evidence": "", "benefit": ""},
+      "persuasion_route": "",
+      "creative_pattern": "",
+      "cta_rationale": "",
+      "distinctness_reason": "",
+      "approved": false
+    }
+  ],
+  "attempts": [],
+  "checker_verdicts": [],
+  "claim_audit": [],
+  "learning_note": "",
+  "retry_budget": {"max_revisions": 2, "used": 0},
+  "final_verdict": {
+    "status": "blocked",
+    "live_ready": false,
+    "manual_check_required": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
+  "required":["review_id","reviewer_id","producer_id","reviewed_draft_sha256","reviewed_evidence_sha256","rubric_sha256","overall_verdict","used_writer_self_score","angle_reviews"],
+  "properties":{
+    "review_id":{"type":"string","minLength":1},
+    "reviewer_id":{"type":"string","minLength":1},
+    "producer_id":{"type":"string","minLength":1},
+    "reviewed_draft_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "reviewed_evidence_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "rubric_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "overall_verdict":{"enum":["pass","fail","blocked"]},
+    "used_writer_self_score":{"const":false},
+    "angle_reviews":{"type":"array","minItems":1,"items":{"type":"object","required":["angle_id","opening","buyer_payoff","distinctness","evidence_boundary","field_fit","claim_verdicts"],"properties":{"angle_id":{"type":"string","minLength":1},"opening":{"$ref":"creative-quality-contract.json#/$defs/review"},"buyer_payoff":{"$ref":"creative-quality-contract.json#/$defs/review"},"distinctness":{"$ref":"creative-quality-contract.json#/$defs/review"},"evidence_boundary":{"$ref":"creative-quality-contract.json#/$defs/review"},"field_fit":{"$ref":"creative-quality-contract.json#/$defs/review"},"claim_verdicts":{"type":"array","items":{"type":"object","required":["claim_id","verdict","rationale"],"properties":{"claim_id":{"type":"string","minLength":1},"verdict":{"enum":["pass","fail","blocked"]},"rationale":{"type":"string","minLength":1}}}}}}}
+  }
+}

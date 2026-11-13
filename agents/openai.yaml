@@ -1,0 +1,6 @@
+interface:
+  display_name: "Copywrite 廣告文案 Agent"
+  short_description: "批次研究商品網址，產出有證據的 Meta 與 Google 廣告文案"
+  default_prompt: "Use $copywrite-ad-agent to research my product URLs, extract source-backed USP candidates, and create verified conversion-focused ad copy."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "copy-run.schema.json",
+  "title": "Canonical copywriting workflow run",
+  "type": "object",
+  "required": ["schema_version", "run_id", "workflow_id", "workflow_version", "state", "status", "task", "stages", "transition_log", "retry_budget", "final_verdict"],
+  "properties": {
+    "schema_version": {"type": "string"}, "run_id": {"type": "string"},
+    "workflow_id": {"const": "copywrite-ad-agent"}, "workflow_version": {"type": "string"},
+    "state": {"enum": ["intake", "product_research", "persona_hypothesis", "shopper_tension", "funnel_strategy", "motivation_strategy", "value_translation", "framework_selection", "appeal_matrix", "awaiting_user_confirmation", "copy_drafting", "claim_safety", "deterministic_validation", "independent_review", "learning", "passed", "blocked", "failed", "escalated"]},
+    "status": {"enum": ["in_progress", "blocked", "failed", "escalated", "passed"]},
+    "task": {"type": "object"}, "stages": {"type": "object"}, "transition_log": {"type": "array"},
+    "retry_budget": {"type": "object"}, "final_verdict": {"type": "object"}
+  }
+}

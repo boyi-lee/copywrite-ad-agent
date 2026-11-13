@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "fixture-blocked",
+  "status": "blocked",
+  "started_at": "2026-07-20T00:00:00+00:00",
+  "ended_at": "2026-07-20T00:00:01+00:00",
+  "requested_urls": ["https://example.com/products/blocked"],
+  "products": [
+    {
+      "requested_url": "https://example.com/products/blocked",
+      "source_url": "https://example.com/products/blocked",
+      "crawl_status": "blocked",
+      "status_code": 403,
+      "title": "",
+      "facts": [],
+      "raw_markdown_path": null,
+      "error": "Blocked by robots.txt"
+    }
+  ],
+  "usp_candidates": [],
+  "blocked_claims": [],
+  "budgets": {
+    "max_urls": 20,
+    "max_attempts_per_url": 2,
+    "max_duration_seconds": 180,
+    "max_concurrency": 4,
+    "duration_seconds": 1
+  },
+  "unresolved_risks": ["Required product evidence is inaccessible."],
+  "live_ready": false,
+  "manual_check_required": true
+}

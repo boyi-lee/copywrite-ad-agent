@@ -1,0 +1,32 @@
+{
+  "run_id": "",
+  "loop_id": "copywrite-product-research",
+  "loop_version": "1.0.0",
+  "task_id": "",
+  "started_at": "",
+  "ended_at": "",
+  "trigger": {"type": "explicit_user_request"},
+  "input_snapshot": {"urls": []},
+  "source_evidence": [],
+  "attempts": [],
+  "final_verdict": {
+    "status": "blocked",
+    "score": 0,
+    "failed_criteria": [],
+    "human_review_required": true
+  },
+  "budgets": {
+    "max_urls": 20,
+    "max_attempts_per_url": 2,
+    "max_duration_seconds": 180,
+    "max_concurrency": 4,
+    "attempts_used": 0,
+    "duration_seconds": 0
+  },
+  "artifacts": [],
+  "unresolved_risks": [],
+  "learning_note": "",
+  "rule_update_proposal": "",
+  "live_ready": false,
+  "manual_check_required": true
+}

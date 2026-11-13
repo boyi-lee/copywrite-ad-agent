@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "creative-brief-review.schema.json",
+  "title": "Creative Brief Review Gate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["reviewer_provenance", "decision", "reviewed_brief_set_sha256", "brief_reviews", "batch_review"],
+  "properties": {
+    "reviewer_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reviewer_type", "reviewer_id", "method", "rubric_sha256", "completed_at"],
+      "properties": {
+        "reviewer_type": {"enum": ["ai_second_pass", "human_reviewer"]},
+        "reviewer_id": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "minLength": 1},
+        "rubric_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "completed_at": {"type": "string", "minLength": 1}
+      }
+    },
+    "decision": {"enum": ["PASS", "BLOCK"]},
+    "reviewed_brief_set_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "brief_reviews": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["brief_id", "verdict", "criteria", "finished_asset_checks", "blocking_findings"],
+        "properties": {
+          "brief_id": {"type": "string", "minLength": 1},
+          "verdict": {"enum": ["PASS", "BLOCK"]},
+          "criteria": {
+            "type": "object", "additionalProperties": false,
+            "required": ["target_clarity", "funnel_fit", "shopper_tension", "product_and_claim_evidence", "message_focus", "creative_angle_clarity", "visual_direction_fit", "next_action", "angle_distinctness", "brand_and_campaign_fit"],
+            "properties": {
+              "target_clarity": {"$ref": "#/$defs/review_result"},
+              "funnel_fit": {"$ref": "#/$defs/review_result"},
+              "shopper_tension": {"$ref": "#/$defs/review_result"},
+              "product_and_claim_evidence": {"$ref": "#/$defs/review_result"},
+              "message_focus": {"$ref": "#/$defs/review_result"},
+              "creative_angle_clarity": {"$ref": "#/$defs/review_result"},
+              "visual_direction_fit": {"$ref": "#/$defs/review_result"},
+              "next_action": {"$ref": "#/$defs/review_result"},
+              "angle_distinctness": {"$ref": "#/$defs/review_result"},
+              "brand_and_campaign_fit": {"$ref": "#/$defs/review_result"}
+            }
+          },
+          "finished_asset_checks": {"$ref": "#/$defs/not_applicable_result"},
+          "blocking_findings": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "batch_review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["verdict", "batch_coverage", "similarity_check", "blocking_findings"],
+      "properties": {
+        "verdict": {"enum": ["PASS", "BLOCK"]},
+        "batch_coverage": {"$ref": "#/$defs/review_result"},
+        "similarity_check": {"$ref": "#/$defs/review_result"},
+        "blocking_findings": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  },
+  "$defs": {
+    "not_applicable_result": {
+      "type": "object", "additionalProperties": false, "required": ["verdict", "rationale"],
+      "properties": {"verdict": {"const": "NOT_APPLICABLE"}, "rationale": {"type": "string", "minLength": 1}}
+    },
+    "review_result": {
+      "type": "object", "additionalProperties": false, "required": ["verdict", "rationale"],
+      "properties": {"verdict": {"enum": ["PASS", "BLOCK"]}, "rationale": {"type": "string", "minLength": 1}}
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "run_id":"callaway-e2e-20260831",
+  "brief_id":"callaway-summer-sale-mofu",
+  "brand":"Callaway",
+  "platform":"meta",
+  "task_type":"ecommerce_collection_ad",
+  "business_objective":"purchase",
+  "funnel_stage":"MOFU",
+  "audience_state":"正在比較球桿選項的台灣球友",
+  "buying_task":"比較設定與桿號，判斷下一步選購",
+  "product_urls":["https://callaway.com.tw/products/elyte-dr","https://callaway.com.tw/products/elyte-hy"],
+  "requested_angle_count":2,
+  "evidence_role":"讓選桿與設定差異可比較",
+  "cta_job":"進入官網查看規格與活動選項",
+  "funnel_rationale":"MOFU 受眾需要比較依據，不只需要認識品牌",
+  "primary_motivation":"esteem",
+  "secondary_motivation":"risk_reduction",
+  "why_now_or_why_inspect":"活動提供查看選項的入口，但未宣稱期限或庫存",
+  "motivation_evidence_fact_ids":["fact-dr-01","fact-hy-01"],
+  "persona_hypotheses":[
+    {"persona_id":"p-dr","persona":"正在比較發球木桿設定的球友","use_context":"開球前評估球路","jtbd":"找到可比較的左右彈道設定","decision_barrier":"不確定哪個設定適合" ,"evidence_fact_ids":["fact-dr-01"],"confidence":"medium","is_hypothesis":true},
+    {"persona_id":"p-hy","persona":"想補足長桿距離缺口的球友","use_context":"球袋檢視長桿配置","jtbd":"比較 3H／4H／5H 選項","decision_barrier":"不確定桿號與設定差異","evidence_fact_ids":["fact-hy-01"],"confidence":"medium","is_hypothesis":true}
+  ],
+  "tensions":[
+    {"tension_id":"t-dr","persona_id":"p-dr","use_moment":"開球前","job_to_be_done":"比較彈道設定","friction":"難判斷左右球路選項","belief_gap":"不知道可調設定如何幫助比較","evidence_fact_ids":["fact-dr-01"]},
+    {"tension_id":"t-hy","persona_id":"p-hy","use_moment":"檢視長桿配置","job_to_be_done":"比較桿號與角度","friction":"不知道該從哪個桿號開始看","belief_gap":"不確定選項是否足以支援比較","evidence_fact_ids":["fact-hy-01"]}
+  ],
+  "decision_to_make":"選擇要先查看哪一類長桿設定",
+  "value_ladders":[
+    {"ladder_id":"u-dr","feature_fact_id":"fact-dr-01","evidence_quote":"尾部配重可調整左右彈道方向","functional_benefit":"提供左右彈道的比較依據","use_moment":"開球前","felt_outcome":"更容易依自己的比較條件查看","purchase_reason":"值得進入商品頁查看設定"},
+    {"ladder_id":"u-hy","feature_fact_id":"fact-hy-01","evidence_quote":"可比較 3H／4H／5H、桿面角度、著地角度、左右彈道與兩側配重","functional_benefit":"提供桿號與設定的比較依據","use_moment":"檢視長桿配置","felt_outcome":"更容易從桿號開始篩選","purchase_reason":"值得進入商品頁查看選項"}
+  ],
+  "framework_routes":[
+    {"angle_id":"angle-dr","candidate_scores":{"PAS":3,"TIPS":2,"AIDAS":4,"4R":1},"selected_message_framework":"AIDAS","selected_value_framework":"FEB","selection_reason":"MOFU 需要先引出比較情境，再把設定連到查看規格；不使用 4R 因無商業 reassurance 證據","rejected_frameworks":["PAS: agitate 不適合放大未證實風險","TIPS: sell 層需要額外商業證據","4R: 缺少退換貨或付款證據"],"expected_structure":"attention→interest→desire→action"},
+    {"angle_id":"angle-hy","candidate_scores":{"PAS":2,"TIPS":3,"AIDAS":4,"4R":1},"selected_message_framework":"AIDAS","selected_value_framework":"FEB","selection_reason":"以桿號比較建立 interest，再連到查看規格","rejected_frameworks":["PAS: 不放大焦慮","TIPS: sell 證據不足","4R: 沒有已驗證商業條件"],"expected_structure":"attention→interest→desire→action"}
+  ],
+  "angles":[
+    {"angle_id":"angle-dr","persona_id":"p-dr","tension_id":"t-dr","value_ladder_ids":["u-dr"],"framework_route_id":"angle-dr","opening_route":"開球前比較左右彈道","proof_role":"尾部配重設定","cta_rationale":"查看發球木桿規格","distinctness_against":["angle-hy"],"copy":{"primary_text":"開球前，想先比較左右彈道設定？\n\nCallaway ELYTE 發球木桿的尾部配重，可依需求查看左右彈道方向的設定。\n\n進入官網比較規格與活動選項。","headline":"ELYTE 發球木桿｜比較彈道設定","description":"查看 Callaway 商品規格","cta":"立即選購"},"claim_ids":["claim-dr-01"],"source_fact_ids":["fact-dr-01"],"application_trace":{"angle_id":"angle-dr","selected_message_framework":"AIDAS","selected_value_framework":"FEB","final_draft_text":"開球前，想先比較左右彈道設定？\n\nCallaway ELYTE 發球木桿的尾部配重，可依需求查看左右彈道方向的設定。\n\n進入官網比較規格與活動選項。","application_steps":[{"step":"attention","copy_quote":"開球前，想先比較左右彈道設定？","copy_block_id":"block-1","not_used":false},{"step":"interest","copy_quote":"尾部配重，可依需求查看左右彈道方向的設定。","copy_block_id":"block-2","not_used":false},{"step":"desire","copy_quote":"比較規格與活動選項。","copy_block_id":"block-3","not_used":false},{"step":"action","copy_quote":"進入官網","copy_block_id":"block-3","not_used":false},{"step":"satisfaction","not_used":true,"reason":"未有購後證據"}],"value_chain":{"feature_fact_id":"fact-dr-01","evidence_quote":"尾部配重可調整左右彈道方向","benefit_copy_quote":"可依需求查看左右彈道方向的設定"}}},
+    {"angle_id":"angle-hy","persona_id":"p-hy","tension_id":"t-hy","value_ladder_ids":["u-hy"],"framework_route_id":"angle-hy","opening_route":"從長桿桿號比較開始","proof_role":"桿號與角度設定","cta_rationale":"查看鐵木桿選項","distinctness_against":["angle-dr"],"copy":{"primary_text":"長桿配置有缺口，先從桿號開始比較。\n\nCallaway ELYTE 鐵木桿可查看 3H／4H／5H，以及桿面角度、著地角度與左右彈道設定。\n\n進入官網查看適合你的長桿選項。","headline":"ELYTE 鐵木桿｜比較桿號選項","description":"查看 3H／4H／5H 規格","cta":"立即選購"},"claim_ids":["claim-hy-01"],"source_fact_ids":["fact-hy-01"],"application_trace":{"angle_id":"angle-hy","selected_message_framework":"AIDAS","selected_value_framework":"FEB","final_draft_text":"長桿配置有缺口，先從桿號開始比較。\n\nCallaway ELYTE 鐵木桿可查看 3H／4H／5H，以及桿面角度、著地角度與左右彈道設定。\n\n進入官網查看適合你的長桿選項。","application_steps":[{"step":"attention","copy_quote":"長桿配置有缺口，先從桿號開始比較。","copy_block_id":"block-1","not_used":false},{"step":"interest","copy_quote":"可查看 3H／4H／5H","copy_block_id":"block-2","not_used":false},{"step":"desire","copy_quote":"從桿號開始比較","copy_block_id":"block-1","not_used":false},{"step":"action","copy_quote":"進入官網查看","copy_block_id":"block-3","not_used":false},{"step":"satisfaction","not_used":true,"reason":"未有購後證據"}],"value_chain":{"feature_fact_id":"fact-hy-01","evidence_quote":"可比較 3H／4H／5H、桿面角度、著地角度、左右彈道與兩側配重","benefit_copy_quote":"從桿號開始比較"}}}
+  ],
+  "pairwise_distinctness":[{"left":"angle-dr","right":"angle-hy","changed_dimensions":["persona/use_moment","jtbd_tension","proof_role","opening_route","cta_rationale"],"reason":"一組比較開球左右彈道，一組比較長桿桿號與角度"}]
+}

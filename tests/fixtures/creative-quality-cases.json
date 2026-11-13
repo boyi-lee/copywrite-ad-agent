@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {"case_id":"saas-feature-dump","category":"SaaS","facts":["可建立跨團隊看板"],"motivation":"減少跨團隊交接時找不到進度的來回確認","copy":"可建立跨團隊看板，支援工作管理。","expected":{"buyer_payoff":"fail","evidence_boundary":"pass"}},
+    {"case_id":"food-unsupported-promise","category":"food","facts":["每份含 8 克膳食纖維"],"copy":"每份 8 克膳食纖維，讓你健康一整天。","expected":{"buyer_payoff":"pass","evidence_boundary":"fail"}},
+    {"case_id":"apparel-distinct-motivation","category":"apparel","facts":["外套可收納進附贈收納袋","布料具防潑水處理"],"angles":[{"motivation":"通勤時減少攜帶體積","reason":"外套可收進袋中","hook":"包包又滿了？"},{"motivation":"小雨通勤時減少衣物沾濕","reason":"防潑水布料","hook":"出門遇到小雨怎麼辦？"}],"expected":{"distinctness":"pass"}},
+    {"case_id":"equipment-hook-only-variants","category":"sports equipment","facts":["握把長度 10 公分"],"angles":[{"motivation":"找到合適握把","reason":"比較握把規格","hook":"先看握把長度"},{"motivation":"找到合適握把","reason":"比較握把規格","hook":"你的握把夠長嗎？"}],"expected":{"distinctness":"fail"}},
+    {"case_id":"two-line-hook-request","category":"any","request":"前兩行需要吸引人的 hook","copy":"下班後，還要繞回家換鞋？\n今天練球，直接從公司出發。","expected":{"requested_line_count":2,"universal_character_limit":null}}
+  ]
+}

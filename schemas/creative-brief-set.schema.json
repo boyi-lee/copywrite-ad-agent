@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "creative-brief-set.schema.json",
+  "title": "Reviewed Creative Brief Set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request", "source_evidence", "briefs"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand", "objective", "platform", "ad_format", "market", "language", "requested_counts"],
+      "properties": {
+        "brand": {"type": "string", "minLength": 1},
+        "objective": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1},
+        "ad_format": {"type": "string", "minLength": 1},
+        "market": {"type": "string", "minLength": 1},
+        "language": {"type": "string", "minLength": 1},
+        "requested_counts": {
+          "type": "object", "additionalProperties": false,
+          "required": ["TOFU", "MOFU", "BOFU"],
+          "properties": {
+            "TOFU": {"type": "integer", "minimum": 0},
+            "MOFU": {"type": "integer", "minimum": 0},
+            "BOFU": {"type": "integer", "minimum": 0}
+          }
+        }
+      }
+    },
+    "source_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["evidence_id", "url", "locator", "fact", "evidence_class"],
+        "properties": {
+          "evidence_id": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "minLength": 1},
+          "locator": {"type": "string", "minLength": 1},
+          "fact": {"type": "string", "minLength": 1},
+          "evidence_class": {"enum": ["OBSERVED", "SUPPORTED_BY_BRIEF", "INFERRED", "UNKNOWN"]}
+        }
+      }
+    },
+    "briefs": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["brief_id", "funnel_stage", "target", "shopper_tension", "creative_angle", "primary_buying_reason", "key_message", "product_anchor", "claim_evidence", "visual_direction", "cta_direction", "source_refs", "unknowns", "distinctness_reason"],
+        "properties": {
+          "brief_id": {"type": "string", "minLength": 1},
+          "funnel_stage": {"enum": ["TOFU", "MOFU", "BOFU"]},
+          "target": {
+            "type": "object", "additionalProperties": false,
+            "required": ["audience", "situation", "confirmation_status"],
+            "properties": {
+              "audience": {"type": "string", "minLength": 1},
+              "situation": {"type": "string", "minLength": 1},
+              "confirmation_status": {"enum": ["user_confirmed", "hypothesis_approved"]},
+              "basis": {"type": "string"}
+            }
+          },
+          "shopper_tension": {"type": "string", "minLength": 1},
+          "creative_angle": {"type": "string", "minLength": 1},
+          "primary_buying_reason": {"type": "string", "minLength": 1},
+          "key_message": {"type": "string", "minLength": 1},
+          "product_anchor": {"type": "string", "minLength": 1},
+          "claim_evidence": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["claim", "evidence_id", "evidence_class"],
+              "properties": {
+                "claim": {"type": "string", "minLength": 1},
+                "evidence_id": {"type": "string", "minLength": 1},
+                "evidence_class": {"enum": ["OBSERVED", "SUPPORTED_BY_BRIEF"]}
+              }
+            }
+          },
+          "visual_direction": {"type": "string", "minLength": 1},
+          "cta_direction": {"type": "string", "minLength": 1},
+          "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "unknowns": {"type": "array", "items": {"type": "string"}},
+          "distinctness_reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
