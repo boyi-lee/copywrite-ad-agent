@@ -1,18 +1,18 @@
 # copywrite-ad-agent
 
-[繁體中文](README.md) ｜ [English](README.en.md)
+[繁體中文（預設）](README.md) ｜ [English](README.en.md)
 
-An evidence-first Skill for ecommerce ad copy, Meta creative briefs, product research, and copy review. It combines brand and product evidence with structured planning, deterministic checks, and independent review to produce traceable work.
+An evidence-first ecommerce copywriting Skill for Meta ad copy, creative briefs, product research, and copy review. It combines brand and product evidence with structured planning, deterministic checks, and independent review to produce traceable work.
 
 ## Download and install
 
-Clone the repository directly into the Codex skills directory:
+Clone the repository into the Codex skills directory:
 
 ```bash
 git clone https://github.com/boyi-lee/copywrite-ad-agent.git ~/.codex/skills/copywrite-ad-agent
 ```
 
-Alternatively, choose **Code → Download ZIP** on GitHub, extract it, and place the whole repository in `~/.codex/skills/copywrite-ad-agent/`. The repository root is the Skill root. Keep `SKILL.md`, `agents/`, `knowledge/`, `references/`, `schemas/`, `scripts/`, `templates/`, and `tests/` together.
+Or select **Code → Download ZIP** on GitHub, extract it, and place the complete repository in `~/.codex/skills/copywrite-ad-agent/`. The repository root is the Skill root. Keep `SKILL.md`, `agents/`, `knowledge/`, `references/`, `schemas/`, `scripts/`, `templates/`, and `tests/` together.
 
 The Skill is named `copywrite-ad-agent`; invocation metadata is in `agents/openai.yaml`. Start with [SKILL.md](SKILL.md), the authoritative workflow and permission boundary.
 
@@ -31,6 +31,27 @@ A strategy preview is not ready-to-paste copy. Passing workflow checks does not 
 ### Meta creative briefs for Google Sheets
 
 This is separate from finished ad copy. The Skill creates structured briefs, validates the complete set, and reviews it before any Sheet write. It writes only after the gate passes and the destination is authorized; afterward, it reads the rows back to verify the result.
+
+## Marketing principles used
+
+The Skill uses marketing principles as **analysis and planning tools**, selected for the task. It does not force every copy request into one formula.
+
+| Principle area | Guide | How it is used |
+|---|---|---|
+| Audience intent and core copy principles | [Universal copywriting principles](references/copy-knowledge-pack/01_universal_copywriting_principles.md) | Start from audience intent, problems, or friction; connect product details to benefits and relevant outcomes; identify and address objections. |
+| Persuasion and message frameworks | [Persuasion frameworks](references/copy-knowledge-pack/02_persuasion_frameworks.md), [message structures](references/copy-knowledge-pack/06_message_structure_patterns.md) | Includes TIPS, PAS, BAB, FAB, and objection-handling structures. These organize a message; they are not mandatory templates. |
+| Audience motivation and psychology | [Audience intent and psychology](references/copy-knowledge-pack/03_audience_intent_and_psychology.md), [creative angle matrix](references/creative-angle-matrix.md) | Explore buying motivations, use situations, shopper tensions, desired progress, and distinct reasons to buy. Audience inferences must remain labeled as hypotheses. |
+| Value, offers, and USP | [Offer and value translation](references/copy-knowledge-pack/04_offer_and_value_translation.md), [USP translation rules](references/usp-translation-rules.md), [ecommerce playbook](knowledge/ecommerce-copywriting-playbook.md) | Connect features to functional benefits, use cases, possible felt outcomes, and buying reasons. Offers and urgency require current source support. |
+| Attention and hooks | [Hook and attention patterns](references/copy-knowledge-pack/05_hook_and_attention_patterns.md) | Offers opening options such as questions, scenes, contrast, and warnings. Choose based on audience, creative, and evidence; do not exaggerate to attract attention. |
+| Funnel and channel context | [Funnel copy rules](references/copy-knowledge-pack/07_funnel_copy_rules.md), [platform adaptation](references/copy-knowledge-pack/08_platform_adaptation_rules.md), [industry adaptation](references/copy-knowledge-pack/09_industry_adaptation_rules.md) | Adjust information depth, evidence, and next action to TOFU/MOFU/BOFU decision stages and platform placements. |
+| Creative and field roles | [Meta format guide](references/meta-formats.md), [visual flow rules](references/visual-flow-rules.md) | Make the creative, primary text, headline, description, and CTA work as a sequence while reducing repetition. |
+
+### Boundaries when applying these principles
+
+- A framework label is not evidence and does not prove an angle works. The [creative angle matrix](references/creative-angle-matrix.md) defines distinctness by the actual buying reason.
+- Audience, demand, and motivation inferences must remain hypotheses unless supported by customer data; do not present them as market facts.
+- Product specifications, offers, stock, testimonials, comparisons, and performance claims must be checked against current sources. General marketing principles cannot replace missing product evidence.
+- The knowledge pack provides cross-industry examples and candidate approaches. Assess their fit for the brand, product, platform, and regulatory context; frameworks may be left unused when they do not fit.
 
 ## Sources and boundaries
 
@@ -90,4 +111,4 @@ This repository mirrors the currently installed Skill snapshot. The snapshot has
 
 ---
 
-[繁體中文說明](README.md)
+[繁體中文說明（預設）](README.md)
